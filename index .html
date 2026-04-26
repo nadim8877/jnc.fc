@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#e49ee0",
+                    "surface-container-highest": "#333539",
+                    "surface-tint": "#00e476",
+                    "on-tertiary-fixed": "#001257",
+                    "error-container": "#93000a",
+                    "on-tertiary-container": "#0949ff",
+                    "on-secondary": "#501852",
+                    "secondary-fixed": "#ffd6f8",
+                    "on-primary": "#003919",
+                    "surface-variant": "#333539",
+                    "inverse-primary": "#006d35",
+                    "surface-container-high": "#282a2e",
+                    "primary-fixed": "#61ff97",
+                    "surface-container-lowest": "#0c0e12",
+                    "inverse-on-surface": "#2f3035",
+                    "secondary-container": "#6a306a",
+                    "inverse-surface": "#e2e2e8",
+                    "on-error": "#690005",
+                    "on-surface": "#e2e2e8",
+                    "outline-variant": "#3b4b3d",
+                    "primary": "#f0ffee",
+                    "secondary": "#f7aff2",
+                    "background": "#111317",
+                    "on-primary-fixed-variant": "#005227",
+                    "surface-container-low": "#1a1c20",
+                    "surface-dim": "#111317",
+                    "surface": "#111317",
+                    "primary-container": "#00ff85",
+                    "on-primary-container": "#007137",
+                    "tertiary-fixed": "#dde1ff",
+                    "on-primary-fixed": "#00210c",
+                    "secondary-fixed-dim": "#f7aff2",
+                    "on-background": "#e2e2e8",
+                    "surface-container": "#1e2024",
+                    "tertiary-container": "#d8dcff",
+                    "on-secondary-fixed-variant": "#6a306a",
+                    "on-surface-variant": "#b9cbb9",
+                    "primary-fixed-dim": "#00e476",
+                    "surface-bright": "#37393e",
+                    "on-tertiary-fixed-variant": "#0033c0",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary": "#00228a",
+                    "error": "#ffb4ab",
+                    "on-secondary-fixed": "#37003b",
+                    "outline": "#849584",
+                    "tertiary": "#fcf9ff",
+                    "tertiary-fixed-dim": "#b9c3ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "3rem",
+                    "container-max": "1280px",
+                    "gutter": "1.5rem",
+                    "margin-mobile": "1rem",
+                    "stack-md": "1.5rem",
+                    "stack-sm": "0.5rem"
+            },
+            "fontFamily": {
+                    "body-md": ["Lexend"],
+                    "label-sm": ["Lexend"],
+                    "stat-label": ["Space Grotesk"],
+                    "body-lg": ["Lexend"],
+                    "headline-xl": ["Lexend"],
+                    "headline-md": ["Lexend"],
+                    "stat-value": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "label-sm": ["13px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "stat-label": ["12px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-xl": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "stat-value": ["20px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            background: rgba(30, 32, 36, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800 shadow-[0_0_20px_rgba(0,255,133,0.05)] w-full">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-[1280px] mx-auto">
+<div class="text-2xl font-black italic tracking-tighter text-primary-container font-lexend">EFOB MARKET</div>
+<nav class="hidden md:flex items-center gap-8 font-lexend tracking-tight">
+<a class="text-primary-container border-b-2 border-primary-container font-bold pb-1 text-label-sm" href="#">Home</a>
+<a class="text-zinc-400 hover:text-primary-container transition-colors text-label-sm" href="#">Post ID</a>
+<a class="text-zinc-400 hover:text-primary-container transition-colors text-label-sm" href="#">Marketplace</a>
+<a class="text-zinc-400 hover:text-primary-container transition-colors text-label-sm" href="#">Top Deals</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 text-zinc-400 hover:bg-primary-container/10 hover:text-primary-container rounded-full transition-all active:scale-90">
+<span class="material-symbols-outlined" data-icon="filter_list">filter_list</span>
+</button>
+<button class="p-2 text-zinc-400 hover:bg-primary-container/10 hover:text-primary-container rounded-full transition-all active:scale-90">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+</button>
+</div>
+</div>
+</header>
+<div class="max-w-[1280px] mx-auto w-full flex flex-1">
+<!-- SideNavBar (Desktop Only) -->
+<aside class="hidden lg:flex flex-col gap-2 p-6 w-64 border-r border-zinc-800 font-lexend font-medium text-sm">
+<div class="mb-8">
+<div class="text-lg font-extrabold text-primary-container uppercase">PRO HUB</div>
+<div class="text-xs text-zinc-500">Elite Dashboard</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 bg-primary-container/10 text-primary-container rounded-lg p-3 hover:bg-zinc-900 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span>Marketplace</span>
+</a>
+<a class="flex items-center gap-3 text-zinc-500 p-3 hover:bg-zinc-900 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="local_fire_department">local_fire_department</span>
+<span>Trending</span>
+</a>
+<a class="flex items-center gap-3 text-zinc-500 p-3 hover:bg-zinc-900 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-3 text-zinc-500 p-3 hover:bg-zinc-900 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="headset_mic">headset_mic</span>
+<span>Support</span>
+</a>
+</nav>
+<div class="mt-auto pt-6">
+<button class="w-full bg-primary-container text-on-primary-container font-bold py-4 rounded-xl shadow-[0_0_20px_rgba(0,255,133,0.2)] hover:brightness-110 active:scale-95 transition-all">
+                    SELL ID NOW
+                </button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 p-6 md:p-8 overflow-y-auto">
+<!-- Hero / Search Section -->
+<section class="mb-10">
+<div class="mb-8">
+<h1 class="font-headline-xl text-on-surface mb-2">Find Your Elite Squad</h1>
+<p class="text-body-lg text-zinc-500">Verified e-football accounts from top-tier competitive players.</p>
+</div>
+<div class="glass-effect p-6 rounded-2xl border border-zinc-800 shadow-xl">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="col-span-1 md:col-span-1">
+<label class="text-stat-label text-zinc-400 mb-2 block uppercase tracking-tighter">Min Strength</label>
+<input class="w-full bg-transparent border-b border-zinc-700 focus:border-primary-container outline-none py-2 text-on-surface transition-colors" placeholder="e.g. 3000" type="text"/>
+</div>
+<div class="col-span-1 md:col-span-1">
+<label class="text-stat-label text-zinc-400 mb-2 block uppercase tracking-tighter">Level</label>
+<select class="w-full bg-transparent border-b border-zinc-700 focus:border-primary-container outline-none py-2 text-on-surface transition-colors appearance-none">
+<option class="bg-zinc-900">Any Level</option>
+<option class="bg-zinc-900">Level 50+</option>
+<option class="bg-zinc-900">Max Level</option>
+</select>
+</div>
+<div class="col-span-1 md:col-span-1">
+<label class="text-stat-label text-zinc-400 mb-2 block uppercase tracking-tighter">Price Range</label>
+<input class="w-full bg-transparent border-b border-zinc-700 focus:border-primary-container outline-none py-2 text-on-surface transition-colors" placeholder="Max Price ($)" type="text"/>
+</div>
+<div class="flex items-end">
+<button class="w-full bg-primary-container text-on-primary-container font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:brightness-110 transition-all">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span>Filter Feed</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- ID Feed -->
+<section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="bg-surface-container rounded-2xl border border-zinc-800 overflow-hidden group hover:border-primary-container/30 transition-all flex flex-col">
+<div class="relative h-48 w-full">
+<img class="w-full h-full object-cover" data-alt="cinematic shot of a professional football stadium at night with vibrant green pitch and neon blue lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMQnw_h4W03Qu3w5Xm_gclRBgJVNG76z3fX0LFnFY7sKODFeyS2A02BGJehNF8z9r6dtF_PYlur1b8r1fVbhxd0TZw515EIsmGG2ZvTG_nNQpEOg6a6_KFdXt8vfrG_jA9C8JA8oZxr_zl2mMzPiS-KqKZJ14lgfZz4W7ksRqEsx5pvJZAuDeadcwKrwyfp61N4ng9oOerRzMMlWuB0T_T28Tl6ZV4ToCaPQ3hjq6X-kPRog1YUfI0tWcGiG0rWiZNe1fJ3tri-sC_"/>
+<div class="absolute top-4 right-4 bg-zinc-950/80 backdrop-blur px-3 py-1 rounded-full border border-zinc-700">
+<span class="text-primary-container font-stat-value text-sm">DIV 1</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-8 h-8 rounded-full bg-zinc-700">
+<img class="w-full h-full rounded-full object-cover" data-alt="close-up portrait of a professional male gamer with focused expression in a dark room with neon backlighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR5zwS8SPPwfJFX10PmQn1WChIX35wVvtOrzD9c15WSy419Chx0X7KPzOK1r-by-1Wy49csDDG8_BadkWQ7OcntFVdpes3IG-qIrrjcvFTnUPgbB978xyYkLrkGJkwvGG4ouswhklIsQC8sF3WjrlldDVZxerVl8UDMheAsaoUSc3o-y3JZXnM4aU7lNXTQf84EejnJ9Z6jYN9nZDWgrP4H1VkjgZbOuIk_MLuyaf9P6NociDjCZwcIoggxZGXS36G1SG9IAwgt-g1"/>
+</div>
+<div>
+<h3 class="text-label-sm font-bold text-on-surface">Legendary_Striker</h3>
+<p class="text-[10px] text-zinc-500 uppercase">Listed 2 hours ago</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="flex flex-col">
+<span class="text-stat-label text-zinc-500 uppercase">Team Strength</span>
+<span class="text-stat-value text-primary-container">3120</span>
+</div>
+<div class="flex flex-col">
+<span class="text-stat-label text-zinc-500 uppercase">Epic Players</span>
+<span class="text-stat-value text-on-surface">14</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="bg-primary-container/5 border border-primary-container/20 text-primary-container px-2 py-1 rounded text-[10px] font-bold uppercase">Mobile</span>
+<span class="bg-zinc-800 border border-zinc-700 text-zinc-300 px-2 py-1 rounded text-[10px] font-bold uppercase">Full Legend Squad</span>
+</div>
+<div class="mt-auto flex items-center justify-between gap-4 pt-4 border-t border-zinc-800">
+<span class="text-stat-value text-on-surface">$145.00</span>
+<button class="bg-on-surface text-surface-container px-6 py-2 rounded-lg font-bold text-label-sm hover:bg-primary-container hover:text-on-primary-container transition-all">View Details</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container rounded-2xl border border-zinc-800 overflow-hidden group hover:border-primary-container/30 transition-all flex flex-col">
+<div class="relative h-48 w-full">
+<img class="w-full h-full object-cover" data-alt="abstract soccer ball on a futuristic stadium pitch with digital interface overlays and glowing green lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYT8OtKz_zqt2P9l3C9PVdD7iGgRVDSeF0bPgbamC_aIBs4OxxnpKezQpyDn5obUjHYO720SYrtpXaYRS6ekV1hYUyrprUNXme3vpQCCTXdU-BJdfY8VEJW6bRShV5ax8h_nUiZ8Yh7pcq1GdS0UbwEx6YDc1pQLyTHjWGv6I1bH8ouJQX77vSeaeetLgfIxzJTU2Jp1T-bvIACcmD1UG89WIizAaA7NQoO96V7MkRNsl7SBp7-ivgLWgdD87y0Vq6a2_wtT0eZXUo"/>
+<div class="absolute top-4 right-4 bg-zinc-950/80 backdrop-blur px-3 py-1 rounded-full border border-zinc-700">
+<span class="text-primary-container font-stat-value text-sm">PRO</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-8 h-8 rounded-full bg-zinc-700">
+<img class="w-full h-full rounded-full object-cover" data-alt="profile avatar of a young female pro athlete in a minimalist athletic wear with soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMCWHJeSl8Rhz2aqq3Z58pxpSJeqiLoa0pVt8yMAfmaaGcMFBQy54bWTPgTmjdDypjpGlQzfj3zOAkMJxcW42ugGWgJtPnyEo23bKXzcnY-ZlclNbLfRQGBp5KIVq9E4UB7b035cwSqOHn6D_emfXWjyTGh-J_A74HDdx5QKUwrjyKwSO04OBUaGA53uli63GOymB0cIx3o2F_wYTOs1mWURlmld44DB6JW0spatzn2zkLZw9OpddWtQ60uXRTgGbIBnA3aW3oVJ8V"/>
+</div>
+<div>
+<h3 class="text-label-sm font-bold text-on-surface">EFOB_Merchant</h3>
+<p class="text-[10px] text-zinc-500 uppercase">Listed 5 hours ago</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="flex flex-col">
+<span class="text-stat-label text-zinc-500 uppercase">Team Strength</span>
+<span class="text-stat-value text-primary-container">3080</span>
+</div>
+<div class="flex flex-col">
+<span class="text-stat-label text-zinc-500 uppercase">Epic Players</span>
+<span class="text-stat-value text-on-surface">8</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="bg-primary-container/5 border border-primary-container/20 text-primary-container px-2 py-1 rounded text-[10px] font-bold uppercase">Console</span>
+<span class="bg-zinc-800 border border-zinc-700 text-zinc-300 px-2 py-1 rounded text-[10px] font-bold uppercase">Meta Formation</span>
+</div>
+<div class="mt-auto flex items-center justify-between gap-4 pt-4 border-t border-zinc-800">
+<span class="text-stat-value text-on-surface">$89.00</span>
+<button class="bg-on-surface text-surface-container px-6 py-2 rounded-lg font-bold text-label-sm hover:bg-primary-container hover:text-on-primary-container transition-all">View Details</button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container rounded-2xl border border-zinc-800 overflow-hidden group hover:border-primary-container/30 transition-all flex flex-col">
+<div class="relative h-48 w-full">
+<img class="w-full h-full object-cover" data-alt="moody close up of stadium floodlights through fog at night with cold blue and dark grey tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWCDHP3wwdOCkXgTmKiZMa0B7viyXvtooSNyqDj4ObGKcSdNQ6xx3LtvDZ45nFSiAUtvsBViZLYZJbCr8pS-P-1r5a5lpki7D98mkrMIqk1SC4b-e4UFG6CgHqH8SHci3Qaf0kLo5xL5y9fSVhnymdK2_ZBTDkKonHO_HIZwCpzs4sklgj-HGJHFivEvdhhhs0va-VAT3Q5lcbxm0_2ImFeHSKqbJ1WqUSgC5N1b_04lBZtf8eriCjGHyT62Q0rRDqWsUn3yIpr7H4"/>
+<div class="absolute top-4 right-4 bg-zinc-950/80 backdrop-blur px-3 py-1 rounded-full border border-zinc-700">
+<span class="text-primary-container font-stat-value text-sm">ELITE</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-8 h-8 rounded-full bg-zinc-700">
+<img class="w-full h-full rounded-full object-cover" data-alt="portrait photo of a young man with glasses smiling in a modern bright office space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2jeU0AmH6MMkJ7xe15I00Jn02i76gZhazY9MFH0Nt-5nP3ymm7BIbPjo3K2-YE7HcjUMl0ZM-osD4_7yfL1MApSfHjfacOduJApTeJBX3xik4o7g4sm3BVOuzI1cCsjCXT6S1U9dGabQTVCK4z0er9yWPzHqEdZUxWjTdFVUnAD8F0j3FqJnErloPolCZuDFiN6N466IZHEq-E8kBlP8P67S53XqohkbD6QHxNVA1Vut9eY-ORuFCADfvLjg27QLtnk5gUCgJifll"/>
+</div>
+<div>
+<h3 class="text-label-sm font-bold text-on-surface">GoalMachine_07</h3>
+<p class="text-[10px] text-zinc-500 uppercase">Listed 10 hours ago</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="flex flex-col">
+<span class="text-stat-label text-zinc-500 uppercase">Team Strength</span>
+<span class="text-stat-value text-primary-container">3150</span>
+</div>
+<div class="flex flex-col">
+<span class="text-stat-label text-zinc-500 uppercase">Epic Players</span>
+<span class="text-stat-value text-on-surface">22</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="bg-primary-container/5 border border-primary-container/20 text-primary-container px-2 py-1 rounded text-[10px] font-bold uppercase">Mobile</span>
+<span class="bg-zinc-800 border border-zinc-700 text-zinc-300 px-2 py-1 rounded text-[10px] font-bold uppercase">Full ShowTime</span>
+</div>
+<div class="mt-auto flex items-center justify-between gap-4 pt-4 border-t border-zinc-800">
+<span class="text-stat-value text-on-surface">$210.00</span>
+<button class="bg-on-surface text-surface-container px-6 py-2 rounded-lg font-bold text-label-sm hover:bg-primary-container hover:text-on-primary-container transition-all">View Details</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Load More -->
+<div class="mt-12 flex justify-center">
+<button class="flex items-center gap-3 text-primary-container font-bold px-8 py-3 border border-primary-container/30 rounded-full hover:bg-primary-container/10 transition-all">
+<span>EXPLORE MORE LISTINGS</span>
+<span class="material-symbols-outlined" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</button>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="w-full flex flex-col items-center gap-6 mt-auto px-8 py-12 border-t border-zinc-800 bg-zinc-950 font-lexend text-xs uppercase tracking-widest">
+<div class="flex flex-wrap justify-center gap-8 text-zinc-600">
+<a class="hover:text-primary-container transition-all opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="hover:text-primary-container transition-all opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="hover:text-primary-container transition-all opacity-80 hover:opacity-100" href="#">Safety Tips</a>
+<a class="hover:text-primary-container transition-all opacity-80 hover:opacity-100" href="#">Contact Support</a>
+</div>
+<div class="text-zinc-600 text-center">
+            © 2024 E-FOOTBALL ELITE. THE PRO-LEAGUE MARKETPLACE.
+        </div>
+</footer>
+<!-- FAB for Mobile Post ID (shown on home) -->
+<button class="md:hidden fixed bottom-24 right-6 w-14 h-14 bg-primary-container text-on-primary-container rounded-full shadow-2xl flex items-center justify-center active:scale-90 transition-transform z-40">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</body></html>

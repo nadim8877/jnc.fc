@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JNC Elite - T-shirt E-commerce</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Firebase SDK (latest version) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-800 tracking-wider">JNC Elite</h1>
+            <nav class="flex space-x-6">
+                <a href="#" class="text-gray-600 hover:text-indigo-600 transition duration-300">New Arrivals</a>
+                <a href="#" class="text-gray-600 hover:text-indigo-600 transition duration-300">Shop</a>
+                <a href="#" class="text-gray-600 hover:text-indigo-600 transition duration-300">About</a>
+                <!-- Cart Icon -->
+                <button id="cart-btn" class="relative text-gray-600 hover:text-indigo-600 transition duration-300">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    <span id="cart-count" class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">0</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('https://source.unsplash.com/1600x900/?tshirt,fashion,model');">
+        <div class="absolute inset-0 bg-black opacity-40"></div>
+        <div class="relative text-center text-white p-6 md:p-12">
+            <h2 class="text-4xl md:text-6xl font-extrabold mb-4 animate-fadeIn">New Arrivals. Modern Comfort.</h2>
+            <p class="text-lg md:text-xl mb-8 font-light max-w-lg mx-auto animate-fadeIn delay-300">Experience the perfect blend of style and quality with JNC Elite.</p>
+            <button class="bg-indigo-600 text-white px-8 py-3 rounded-full hover:bg-indigo-700 transition duration-300 text-lg shadow-xl animate-scaleIn delay-500">Shop Now</button>
+        </div>
+    </section>
+
+    <!-- New Arrivals Product Grid -->
+    <section id="new-arrivals" class="container mx-auto px-6 py-12">
+        <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Featured New Arrivals</h2>
+        <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Products will be dynamically loaded here by JavaScript -->
+            <div id="loading-spinner" class="col-span-full text-center py-12">
+                <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mx-auto"></div>
+                <p class="text-gray-600 mt-2">Loading products...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 JNC Elite. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Sliding Cart Modal -->
+    <aside id="cart-sidebar" class="fixed top-0 right-0 h-full w-full md:w-96 bg-white shadow-lg z-50 transform translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="flex flex-col h-full">
+            <div class="flex justify-between items-center p-4 border-b">
+                <h3 class="text-xl font-semibold">Shopping Cart</h3>
+                <button id="close-cart-btn" class="text-gray-600 hover:text-red-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div id="cart-items-list" class="flex-grow overflow-y-auto p-4 space-y-4">
+                <!-- Cart items will be displayed here dynamically -->
+                <p id="empty-cart-message" class="text-gray-500 text-center hidden">Your cart is empty.</p>
+            </div>
+            <div class="p-4 border-t">
+                <div class="flex justify-between font-bold text-lg mb-2">
+                    <span>Subtotal:</span>
+                    <span id="cart-total-price">$0.00</span>
+                </div>
+                <button id="checkout-btn" class="w-full bg-indigo-600 text-white py-3 rounded-md hover:bg-indigo-700 transition duration-300">Proceed to Checkout</button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Checkout Modal (Overlay) -->
+    <div id="checkout-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
+        <div class="bg-white rounded-lg p-8 w-full max-w-lg shadow-xl relative animate-fadeInUp">
+            <button id="close-checkout-btn" class="absolute top-4 right-4 text-gray-500 hover:text-red-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h3 class="text-2xl font-bold mb-6">Checkout Details</h3>
+            <form id="checkout-form">
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-1">Full Name</label>
+                    <input type="text" id="checkout-name" required class="w-full border rounded-md px-3 py-2 focus:ring-indigo-500 focus:border-indigo-500">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-1">Phone Number</label>
+                    <input type="tel" id="checkout-phone" required class="w-full border rounded-md px-3 py-2 focus:ring-indigo-500 focus:border-indigo-500">
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 mb-1">Delivery Address</label>
+                    <textarea id="checkout-address" rows="3" required class="w-full border rounded-md px-3 py-2 focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-green-600 text-white py-3 rounded-md hover:bg-green-700 transition duration-300">Place Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main JavaScript file -->
+    <script src="app.js"></script>
+
+</body>
+</html>
